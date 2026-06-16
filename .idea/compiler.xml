@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chat-memory-example" />
+        <module name="langchain4j-examples" />
+        <module name="chat-and-language-models-example" />
+        <module name="model-parameters-example" />
+        <module name="response-streaming-example" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/01.get-started-example/pom.xml" />
+        <option value="$PROJECT_DIR$/02.chat-and-language-models/pom.xml" />
+        <option value="$PROJECT_DIR$/03.chat-memory/pom.xml" />
+        <option value="$PROJECT_DIR$/04.model-parameters/pom.xml" />
+        <option value="$PROJECT_DIR$/05.response-streaming/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="ms-21" project-jdk-type="JavaSDK" />
+</project>
