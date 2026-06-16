@@ -11,5 +11,11 @@
     <file url="file://$PROJECT_DIR$/04.model-parameters/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/05.response-streaming/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/05.response-streaming/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06.ai-services/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06.ai-services/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/07.agentic-systems/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/07.agentic-systems/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/08.workflow-patterns/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/08.workflow-patterns/src/main/resources" charset="UTF-8" />
   </component>
 </project>

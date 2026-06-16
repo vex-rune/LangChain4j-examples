@@ -9,6 +9,9 @@
         <option value="$PROJECT_DIR$/03.chat-memory/pom.xml" />
         <option value="$PROJECT_DIR$/04.model-parameters/pom.xml" />
         <option value="$PROJECT_DIR$/05.response-streaming/pom.xml" />
+        <option value="$PROJECT_DIR$/06.ai-services/pom.xml" />
+        <option value="$PROJECT_DIR$/07.agentic-systems/pom.xml" />
+        <option value="$PROJECT_DIR$/08.workflow-patterns/pom.xml" />
       </list>
     </option>
   </component>

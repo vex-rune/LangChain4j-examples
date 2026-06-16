@@ -7,10 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chat-memory-example" />
-        <module name="langchain4j-examples" />
+        <module name="ai-services-example" />
+        <module name="agentic-systems-example" />
         <module name="chat-and-language-models-example" />
         <module name="model-parameters-example" />
         <module name="response-streaming-example" />
+        <module name="workflow-patterns-example" />
+        <module name="langchain4j-examples" />
       </profile>
     </annotationProcessing>
   </component>
