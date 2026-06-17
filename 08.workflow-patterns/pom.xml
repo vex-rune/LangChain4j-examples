@@ -36,6 +36,12 @@
             <artifactId>langchain4j-agentic</artifactId>
             <version>${langchain4j-agentic.version}</version>
         </dependency>
+        <!-- SLF4J日志实现，必须引入 -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.8</version>
+        </dependency>
     </dependencies>
 
     <build>

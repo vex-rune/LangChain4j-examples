@@ -36,7 +36,8 @@ public class _02_LoopWorkflow {
                 .baseUrl("https://api.deepseek.com")
                 .apiKey(apiKey)
                 .modelName("deepseek-chat")
-                .logRequests(true)
+                .logRequests(true)   // 打印请求体（完整prompt、参数）
+                .logResponses(true)  // 打印大模型返回原始内容
                 .build();
 
         StyleScorer scorer = AgenticServices.agentBuilder(StyleScorer.class)
@@ -52,6 +53,7 @@ public class _02_LoopWorkflow {
         dev.langchain4j.agentic.UntypedAgent styleReviewLoop = AgenticServices.loopBuilder()
                 .subAgents(scorer, editor)
                 .maxIterations(5)
+                .outputKey("story")
                 .exitCondition(scope -> scope.readState("score", 0.0) >= 0.8)
                 .build();
 
@@ -63,6 +65,7 @@ public class _02_LoopWorkflow {
         System.out.println("=====================循环工作流开始=====================");
         String result = (String) styleReviewLoop.invoke(input);
         System.out.println("=====================循环工作流完成=====================");
+        System.out.println("最终故事：");
         System.out.println(result);
     }
 }

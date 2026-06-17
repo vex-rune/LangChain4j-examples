@@ -43,7 +43,8 @@ public class _01_SequentialWorkflow {
                 .baseUrl("https://api.deepseek.com")
                 .apiKey(apiKey)
                 .modelName("deepseek-chat")
-                .logRequests(true)
+                .logRequests(true)   // 打印请求体（完整prompt、参数）
+                .logResponses(true)  // 打印大模型返回原始内容
                 .build();
 
         CreativeWriter writer = AgenticServices.agentBuilder(CreativeWriter.class)

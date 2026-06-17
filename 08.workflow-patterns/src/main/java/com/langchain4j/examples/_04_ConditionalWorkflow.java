@@ -4,6 +4,7 @@ import dev.langchain4j.agentic.Agent;
 import dev.langchain4j.agentic.AgenticServices;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
 
@@ -12,14 +13,14 @@ import java.util.Map;
 public class _04_ConditionalWorkflow {
 
     // 枚举：请求分类
-    enum RequestCategory {
-        法律, 医疗, 技术, 其他
+    public enum RequestCategory {
+        LEGAL, MEDICAL, TECHNOLOGY, OTHER
     }
 
     // 1. 分类路由Agent
     public interface CategoryRouter {
         @Agent("对用户请求进行分类")
-        @UserMessage("分析以下用户请求，分类为：法律/医疗/技术/其他。\n只输出一个词。\n请求：{{request}}")
+        @UserMessage("分析以下用户请求，分类为：LEGAL, MEDICAL, TECHNOLOGY, OTHER。只输出一个词。请求：{{request}}")
         RequestCategory classify(@V("request") String request);
     }
 
@@ -55,7 +56,8 @@ public class _04_ConditionalWorkflow {
                 .baseUrl("https://api.deepseek.com")
                 .apiKey(apiKey)
                 .modelName("deepseek-chat")
-                .logRequests(true)
+                .logRequests(true)   // 打印请求体（完整prompt、参数）
+                .logResponses(true)  // 打印大模型返回原始内容
                 .build();
 
         CategoryRouter router = AgenticServices.agentBuilder(CategoryRouter.class)
@@ -78,11 +80,14 @@ public class _04_ConditionalWorkflow {
                 .outputKey("response")
                 .build();
 
-        dev.langchain4j.agentic.UntypedAgent expertsAgent = AgenticServices.conditionalBuilder()
-                .subAgents(scope -> scope.readState("category", RequestCategory.其他) == RequestCategory.医疗, medicalExpert)
-                .subAgents(scope -> scope.readState("category", RequestCategory.其他) == RequestCategory.法律, legalExpert)
-                .subAgents(scope -> scope.readState("category", RequestCategory.其他) == RequestCategory.技术, technicalExpert)
-                .build();
+        dev.langchain4j.agentic.UntypedAgent expertsAgent =
+                AgenticServices
+                        // 条件工作流
+                        .conditionalBuilder()
+                        .subAgents(scope -> scope.readState("category", RequestCategory.OTHER) == RequestCategory.MEDICAL, medicalExpert)
+                        .subAgents(scope -> scope.readState("category", RequestCategory.OTHER) == RequestCategory.LEGAL, legalExpert)
+                        .subAgents(scope -> scope.readState("category", RequestCategory.OTHER) == RequestCategory.TECHNOLOGY, technicalExpert)
+                        .build();
 
         dev.langchain4j.agentic.UntypedAgent expertRouter = AgenticServices.sequenceBuilder()
                 .subAgents(router, expertsAgent)
@@ -99,7 +104,7 @@ public class _04_ConditionalWorkflow {
         System.out.println("=====================条件工作流开始=====================");
         for (String request : requests) {
             System.out.println("\n问题: " + request);
-            String response = (String) expertRouter.invoke(Map.of("request", request));
+            Object response = expertRouter.invoke(Map.of("request", request));
             System.out.println("回答: " + response);
         }
         System.out.println("=====================条件工作流完成=====================");
