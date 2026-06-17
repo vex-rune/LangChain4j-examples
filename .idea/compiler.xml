@@ -14,6 +14,7 @@
         <module name="pure-agentic-example" />
         <module name="response-streaming-example" />
         <module name="workflow-patterns-example" />
+        <module name="tools-example" />
         <module name="langchain4j-examples" />
       </profile>
     </annotationProcessing>
@@ -21,6 +22,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="pure-agentic-example" options="-parameters" />
+      <module name="tools-example" options="-parameters" />
       <module name="workflow-patterns-example" options="-parameters" />
     </option>
   </component>
