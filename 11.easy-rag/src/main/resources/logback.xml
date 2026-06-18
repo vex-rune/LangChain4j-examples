@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 只显示 ERROR 级别日志 -->
+    <root level="ERROR">
+        <appender-ref ref="STDOUT" />
+    </root>
+    
+    <!-- 关闭所有第三方库的日志 -->
+    <logger name="dev.langchain4j" level="OFF"/>
+    <logger name=" okhttp" level="OFF"/>
+    <logger name="okhttp3" level="OFF"/>
+    <logger name="org.apache" level="OFF"/>
+</configuration>

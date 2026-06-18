@@ -13,15 +13,19 @@
         <module name="model-parameters-example" />
         <module name="pure-agentic-example" />
         <module name="response-streaming-example" />
+        <module name="core-api-example" />
         <module name="workflow-patterns-example" />
         <module name="tools-example" />
         <module name="langchain4j-examples" />
+        <module name="rag-example" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="core-api-example" options="-parameters" />
       <module name="pure-agentic-example" options="-parameters" />
+      <module name="rag-example" options="-parameters" />
       <module name="tools-example" options="-parameters" />
       <module name="workflow-patterns-example" options="-parameters" />
     </option>
